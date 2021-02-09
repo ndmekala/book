@@ -61,6 +61,15 @@ function addLastToTable() {
     actions.appendChild(removebtn);
     actions.appendChild(readstatusbtn);
 
+
+    //should this go before append?
+    //no should go within e listener for removebtn… I think??
+    const tablerows = Array.from(document.getElementById('tbl').rows);
+    for (i=0; i < tablerows.length; i++) {
+        // set data-id
+
+    }
+
     // doesn’t work because if you delete first entry the data id does not change for second
     // so data id+1 is longer than length of table…
     // loop over all entries and reset data–id to fit w row #? (FOR BOTH READ STATUS AND REMOVE!)
