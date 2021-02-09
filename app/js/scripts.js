@@ -66,6 +66,8 @@ function addLastToTable() {
     // loop over all entries and reset data–id to fit w row #? (FOR BOTH READ STATUS AND REMOVE!)
     // this *should* mimic behavior of array + array numbers
     // could make it a function
+
+    // 
 }
 
 // EVENT LISTENER FOR NEW BOOK
