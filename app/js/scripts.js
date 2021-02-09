@@ -6,6 +6,8 @@ function Book(title, author, pages, read) {
     this.pages = pages,
     this.read = read,
     this.info = function() {
+        // included for prompt… no functionality… but doesn’t work because it we mess with array
+        // doing so doesn’t update the function…
         if (read) {
             console.log(`${this.title} by ${this.author}, ${this.pages} pages, read`)
         }
@@ -18,10 +20,6 @@ function Book(title, author, pages, read) {
 function addBookToLibrary(title, author, pages, read) {
     myLibrary[myLibrary.length] = new Book(title, author, pages, read);
 }
-
-// addBookToLibrary("bible", "God", "a lot", true);
-
-// alternate… break and build entire table each time…
 
 function addLastToTable() {
     let table = document.querySelector('#tbl');
@@ -43,41 +41,35 @@ function addLastToTable() {
     var removebtn = document.createElement('BUTTON');
     removebtn.classList.add('remove');
     removebtn.classList.add('tablebtn');
-    removebtn.dataset.indexNumber = myLibrary.length-1;
     removebtn.innerHTML = 'Remove';
     removebtn.addEventListener ('click', (e) => {
         let table = document.querySelector('#tbl')
-        table.deleteRow(Number(e.target.dataset.indexNumber)+1);
+        table.deleteRow(Number(e.target.dataset.indexNumber));
+        idSync();
+        myLibrary.splice(Number(e.target.dataset.indexNumber)-1, 1);
     })
     var readstatusbtn = document.createElement('BUTTON');
     readstatusbtn.classList.add('readstatus');
     readstatusbtn.classList.add('tablebtn');
-    readstatusbtn.dataset.indexNumber = myLibrary.length-1;
     readstatusbtn.innerHTML = 'Mark Read';
     readstatusbtn.addEventListener ('click', (e) => {
-        let table = document.querySelector('#tbl')
-        table.deleteRow(Number(e.target.dataset.indexNumber)+1);
+        myLibrary[e.target.parentNode.parentNode.rowIndex-1].read = true;
+        e.target.parentNode.parentNode.children[3].textContent = myLibrary[e.target.parentNode.parentNode.rowIndex-1].read;
     })
     actions.appendChild(removebtn);
     actions.appendChild(readstatusbtn);
-
-
-    //should this go before append?
-    //no should go within e listener for removebtn… I think??
-    const tablerows = Array.from(document.getElementById('tbl').rows);
-    for (i=0; i < tablerows.length; i++) {
-        // set data-id
-
-    }
-
-    // doesn’t work because if you delete first entry the data id does not change for second
-    // so data id+1 is longer than length of table…
-    // loop over all entries and reset data–id to fit w row #? (FOR BOTH READ STATUS AND REMOVE!)
-    // this *should* mimic behavior of array + array numbers
-    // could make it a function
-
-    // 
+    idSync();
 }
+
+// FUNCTION TO SYNC IDS AND TABLE ROW
+function idSync() {
+    const tablerows = Array.from(document.getElementById('tbl').rows);
+    for (let i=1; i < tablerows.length; i++) {
+        for (let j=0; j < tablerows[i].getElementsByClassName('tablebtn').length; j++) {
+            tablerows[i].getElementsByClassName('tablebtn')[j].dataset.indexNumber = i;
+        }
+    }
+}    
 
 // EVENT LISTENER FOR NEW BOOK
 
@@ -91,16 +83,3 @@ newbook.addEventListener('click', () => {
     )
     addLastToTable();
 })
-
-//EVENT LISTENER FOR REMOVING BOOK
-
-// function buildRemoveArray() {
-//     let removeButtons = Array.from(document.querySelectorAll('.remove'))
-//     removeButtons.forEach((element) => {
-//         element.addEventListener('click', (e) => {
-//             let table = document.querySelector('#tbl')
-//             table.deleteRow(e.target.dataset.indexNumber)
-//             // console.log('this is a start');
-//         })
-//     })
-// }

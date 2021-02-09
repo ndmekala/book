@@ -29,7 +29,7 @@ h1 {
 table {
     border: 2px solid black;
     padding: 25px;
-    border-radius: 30px;
+    /* border-radius: 30px; */
     background-color: darkseagreen;
 }
 
@@ -52,7 +52,7 @@ td {
 
 .bigbtn {
     margin: 10px 0 0 0;
-    border-radius: 30px;
+    /* border-radius: 30px; */
     width: 100%;
     padding: 15px;
     background-color: darkseagreen;
@@ -67,7 +67,7 @@ td {
     background-color: snow;
     font-size: 12px;
     letter-spacing: 1px;
-    border-radius: 8px;
+    /* border-radius: 8px; */
     width: 100%;
     text-transform: uppercase;
     margin: 2px;
