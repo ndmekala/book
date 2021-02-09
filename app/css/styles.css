@@ -50,7 +50,7 @@ td {
 
 }
 
-#newbook {
+.bigbtn {
     margin: 10px 0 0 0;
     border-radius: 30px;
     width: 100%;
@@ -65,6 +65,10 @@ td {
 
 .tablebtn {
     background-color: snow;
+    font-size: 12px;
+    letter-spacing: 1px;
     border-radius: 8px;
     width: 100%;
+    text-transform: uppercase;
+    margin: 2px;
 }
