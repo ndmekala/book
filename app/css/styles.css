@@ -1,0 +1,70 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: thistle;
+  }
+
+h1 {
+    font-size: 75px;
+    margin: 0 0 20px 0;
+}
+
+#wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: thistle;
+    width: 100vw;
+    height: 100vh;
+}
+
+#container {
+    align-self: top;
+    width: 500px;
+    margin: 200px 0 0 0;
+}
+
+#tbl {
+    width: 100%;
+}
+
+table {
+    border: 2px solid black;
+    padding: 25px;
+    border-radius: 30px;
+    background-color: snow;
+}
+
+th {
+    background-color: darkseagreen;
+    padding: 5px;
+    border: 1px solid black;
+    font-weight: bold;
+    text-align: left;
+
+}
+
+td {
+    text-align: left;
+    background-color: gainsboro;
+    padding: 5px;
+    border: 1px solid black;
+
+}
+
+#newbook {
+    margin: 10px 0 0 0;
+    border-radius: 30px;
+    width: 100%;
+    padding: 15px;
+    background-color: darkseagreen;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 20px;
+    font-weight: normal;
+    border: 2px solid black;
+}
+
+.tablebtn {
+    background-color: snow;
+    border-radius: 8px;
+    width: 100%;
+}
