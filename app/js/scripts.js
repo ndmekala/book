@@ -1,11 +1,12 @@
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
-    this.title = title,
-    this.author = author,
-    this.pages = pages,
-    this.read = read,
-    this.info = function() {
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title,
+        this.author = author,
+        this.pages = pages,
+        this.read = read,
+        this.info = function() {
         // included for prompt… no functionality… but doesn’t work because it we mess with array
         // doing so doesn’t update the function…
         // didn’t really follow the prompt on how to build read functionality… woops.
@@ -15,6 +16,7 @@ function Book(title, author, pages, read) {
         else {
             console.log(`${this.title} by ${this.author}, ${this.pages} pages, not yet read`)
         }
+    }
     }
 }
 
